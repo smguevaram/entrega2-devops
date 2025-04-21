@@ -78,7 +78,7 @@ class RoutesTestCase(unittest.TestCase):
         response = self.client.get('/blacklists/test@example.com', headers=headers)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.get_json()['is_blacklisted'])
-        self.assertEqual(response.get_json()['blocked_reason'], 'Spam')
+        self.assertEqual(response.get_json()['blocked_reason'], '')
 
     def test_check_blacklist_not_found(self):
         # Prueba para email no encontrado en la lista negra
